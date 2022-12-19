@@ -1,12 +1,12 @@
 <?php
 
-namespace Guave\ContaoSkeletonBundle;
+namespace Guave\FormSaveBundle;
 
-use Guave\ContaoSkeletonBundle\DependencyInjection\GuaveContaoSkeletonExtension;
+use Guave\FormSaveBundle\DependencyInjection\GuaveFormSaveExtension;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class GuaveContaoSkeletonBundle extends Bundle
+class GuaveFormSaveBundle extends Bundle
 {
     /**
      * Register extension
@@ -15,6 +15,6 @@ class GuaveContaoSkeletonBundle extends Bundle
      */
     public function getContainerExtension(): Extension
     {
-        return new GuaveContaoSkeletonExtension();
+        return new GuaveFormSaveExtension();
     }
 }

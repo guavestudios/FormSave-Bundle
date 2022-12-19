@@ -1,6 +1,6 @@
 {
-	"name": "guave/contaoskeleton-bundle",
-	"description": "Skeleton for custom Contao 4 bundles",
+	"name": "guave/formsave-bundle",
+	"description": "Saving Forms to DB for Contao 4.13+",
 	"type": "contao-bundle",
 	"license": "MIT",
 	"authors": [
@@ -12,14 +12,15 @@
 	],
 	"require": {
 		"php": "^7.4 || ^8.0",
-		"contao/core-bundle": "^4.13"
+		"contao/core-bundle": "^4.13",
+		"league/csv": "^9.8"
 	},
 	"require-dev": {
 		"roave/security-advisories": "dev-latest"
 	},
 	"autoload": {
 		"psr-4": {
-			"Guave\\ContaoSkeletonBundle\\": "src/"
+			"Guave\\FormSaveBundle\\": "src/"
 		},
 		"classmap": [
 			"src/Resources/contao"
@@ -32,11 +33,11 @@
 		]
 	},
 	"extra": {
-		"contao-manager-plugin": "Guave\\ContaoSkeletonBundle\\ContaoManager\\Plugin"
+		"contao-manager-plugin": "Guave\\FormSaveBundle\\ContaoManager\\Plugin"
 	},
 	"minimum-stability": "stable",
 	"support": {
-		"issues": "https://github.com/guavestudios/contaoskeleton-bundle/issues",
-		"source": "https://github.com/guavestudios/contaoskeleton-bundle"
+		"issues": "https://github.com/guavestudios/FormSaveBundle/issues",
+		"source": "https://github.com/guavestudios/FormSaveBundle"
 	}
 }

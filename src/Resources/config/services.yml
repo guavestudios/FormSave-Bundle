@@ -4,10 +4,10 @@ services:
     autoconfigure: true
     public: false
 
-  Guave\ContaoSkeletonBundle\:
+  Guave\FormSaveBundle\:
     resource: ../../../src
     exclude: ../../../src/{Entity,Migrations,Resources,Tests}
 
-  Guave\ContaoSkeletonBundle\Controller\:
+  Guave\FormSaveBundle\Controller\:
     resource: ../../../src/Controller
     public: true
