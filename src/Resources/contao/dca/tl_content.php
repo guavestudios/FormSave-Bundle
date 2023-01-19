@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['formName'] = '{type_legend},type;{lead_content},formName';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['formName'] = '{type_legend},type;{lead_content},formName;';
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['formName'] = [
     'exclude' => true,

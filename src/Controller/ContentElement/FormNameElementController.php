@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @ContentElement("form_name",
+ * @ContentElement("formName",
  *   category="includes",
  *   template="ce_form-name"
  * )
