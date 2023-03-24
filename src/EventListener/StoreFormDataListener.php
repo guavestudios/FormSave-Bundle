@@ -6,9 +6,6 @@ use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Contao\Form;
 use Guave\FormSaveBundle\Model\FormSaveModel;
 
-/**
- * @Hook("storeFormData")
- */
 class StoreFormDataListener
 {
     public function __invoke(array $data, Form $form): array

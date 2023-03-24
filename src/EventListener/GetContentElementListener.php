@@ -7,9 +7,6 @@ use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Contao\FormFieldModel;
 use Guave\FormSaveBundle\Model\ContentModel as GuaveContentModel;
 
-/**
- * @Hook("getContentElement")
- */
 class GetContentElementListener
 {
     public function __invoke(ContentModel $contentModel, string $buffer, $element): string
