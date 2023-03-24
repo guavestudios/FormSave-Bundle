@@ -11,7 +11,7 @@ use Guave\FormSaveBundle\GuaveFormSaveBundle;
 class Plugin implements BundlePluginInterface
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function getBundles(ParserInterface $parser): array
     {

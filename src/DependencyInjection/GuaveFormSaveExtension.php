@@ -14,9 +14,9 @@ class GuaveFormSaveExtension extends ConfigurableExtension
     {
         $loader = new YamlFileLoader(
             $container,
-            new FileLocator(__DIR__ . '/../Resources/config')
+            new FileLocator(__DIR__.'/../../config')
         );
-        $loader->load('services.yml');
+        $loader->load('services.yaml');
 
         $configDefinition = $container->getDefinition(Config::class);
         $configDefinition->setArgument(0, $mergedConfig);

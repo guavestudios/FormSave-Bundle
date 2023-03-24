@@ -37,7 +37,7 @@ class CsvExportController
 
         if (FormSaveModel::findByPid($row['id'])) {
             return '<a href="contao?do=form&' . $href . '&amp;id=' . $row['id'] . '" title="'
-                .  StringUtil::specialchars($title) . '"' . $attributes . '>'
+                . StringUtil::specialchars($title) . '"' . $attributes . '>'
                 . Image::getHtml($icon, $label)
                 . '</a>';
         }

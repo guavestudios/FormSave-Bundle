@@ -2,8 +2,8 @@
 
 namespace Guave\FormSaveBundle\EventListener;
 
-use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Contao\ContentModel;
+use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Contao\FormFieldModel;
 use Guave\FormSaveBundle\Model\ContentModel as GuaveContentModel;
 

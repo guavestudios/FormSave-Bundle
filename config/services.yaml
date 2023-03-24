@@ -2,14 +2,9 @@ services:
   _defaults:
     autowire: true
     autoconfigure: true
-    public: false
-
-  Guave\FormSaveBundle\:
-    resource: ../../../src
-    exclude: ../../../src/{Entity,Migrations,Resources,Tests}
 
   Guave\FormSaveBundle\Controller\:
-    resource: ../../../src/Controller
+    resource: ../src/Controller
     public: true
 
   Guave\FormSaveBundle\Config\Config:
