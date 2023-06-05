@@ -49,7 +49,7 @@ class CsvExportController
     public function exportCsv(DC_Table $dc): void
     {
         $formFields = FormFieldModel::findByPid($dc->id);
-        $records = FormSaveModel::findByPid($dc->id);
+        $records = FormSaveModel::findByPid($dc->id, ['order' => 'tstamp DESC']);
 
         try {
             $writer = Writer::createFromFileObject(new SplTempFileObject())
