@@ -11,3 +11,6 @@ services:
   Guave\FormSaveBundle\Controller\:
     resource: ../../../src/Controller
     public: true
+
+  Guave\FormSaveBundle\Config\Config:
+    public: true
