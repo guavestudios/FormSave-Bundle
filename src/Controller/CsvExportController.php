@@ -2,18 +2,26 @@
 
 namespace Guave\FormSaveBundle\Controller;
 
-use Contao\StringUtil;
-use Guave\FormSaveBundle\Model\FormSaveModel;
 use Contao\DC_Table;
 use Contao\FormFieldModel;
 use Contao\Image;
 use Contao\Model\Collection;
+use Contao\StringUtil;
+use Guave\FormSaveBundle\Config\Config;
+use Guave\FormSaveBundle\Model\FormSaveModel;
 use League\Csv\CannotInsertRecord;
 use League\Csv\Writer;
 use SplTempFileObject;
 
 class CsvExportController
 {
+    private Config $config;
+
+    public function __construct(Config $config)
+    {
+        $this->config = $config;
+    }
+
     public function checkVisibility(
         $row,
         $href,
@@ -21,13 +29,13 @@ class CsvExportController
         $title,
         $icon,
         $attributes
-    ): string {
+    ): string
+    {
         if ($row['storeValues'] !== '1' || $row['targetTable'] !== FormSaveModel::getTable()) {
             return '';
         }
 
-        $formDataSets = FormSaveModel::findByPid($row['id']);
-        if ($formDataSets) {
+        if (FormSaveModel::findByPid($row['id'])) {
             return '<a href="contao?do=form&' . $href . '&amp;id=' . $row['id'] . '" title="'
                 .  StringUtil::specialchars($title) . '"' . $attributes . '>'
                 . Image::getHtml($icon, $label)
@@ -44,8 +52,10 @@ class CsvExportController
         $records = FormSaveModel::findByPid($dc->id);
 
         try {
-            $writer = Writer::createFromFileObject(new SplTempFileObject());
-            $writer->setNewline("\r\n");
+            $writer = Writer::createFromFileObject(new SplTempFileObject())
+                ->setDelimiter($this->config->getSeparator())
+                ->setEnclosure($this->config->getQuote())
+                ->setEndOfLine("\r\n");
 
             $writer->insertOne($this->getHeader($formFields));
 

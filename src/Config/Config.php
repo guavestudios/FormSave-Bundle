@@ -4,7 +4,7 @@ namespace Guave\FormSaveBundle\Config;
 
 class Config
 {
-    private string $quote = '\u0027';
+    private string $quote = '"';
     private string $separator = ',';
 
     public function __construct(array $config)

@@ -16,7 +16,7 @@ class Configuration implements ConfigurationInterface
 
         $treeBuilder->getRootNode()
             ->children()
-                ->scalarNode('quote')->defaultValue('\u0027')->end()
+                ->scalarNode('quote')->defaultValue('"')->end()
                 ->scalarNode('separator')->defaultValue(',')->end()
             ->end()
         ;
