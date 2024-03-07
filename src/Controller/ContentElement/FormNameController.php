@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * @ContentElement("formName", category="includes", template="content_element/form-name")
  */
-#[AsContentElement('formName', category:'includes', template:'content_element/form-name')]
+#[AsContentElement('formName', category: 'includes', template: 'content_element/form-name')]
 class FormNameController extends AbstractContentElementController
 {
     protected function getResponse(Template $template, ContentModel $model, Request $request): ?Response
