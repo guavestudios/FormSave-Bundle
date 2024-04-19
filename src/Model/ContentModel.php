@@ -1,22 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Guave\FormSaveBundle\Model;
 
 use Contao\ContentModel as BaseContentModel;
-use Contao\Model\Collection;
 
 class ContentModel extends BaseContentModel
 {
     /**
-     * Find all published content elements by their parent ID and name
-     *
-     * @param int $pid The article ID
-     * @param string $type The content element name
-     * @param array $options An optional options array
-     *
-     * @return Collection|ContentModel[]|ContentModel|null A collection of models or null if there are no content elements
+     * @param array<string> $options
      */
-    public static function findPublishedByPidAndType(int $pid, string $type, array $options = [])
+    public static function findPublishedByPidAndType(int $pid, string $type, array $options = []): BaseContentModel|null
     {
         $table = static::$strTable;
         $columns = ["$table.pid=? AND $table.type=? AND $table.ptable='tl_article'"];

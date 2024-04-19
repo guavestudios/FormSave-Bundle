@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Guave\FormSaveBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -8,7 +10,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 class Configuration implements ConfigurationInterface
 {
     /**
-     * @inheritDoc
+     * {@inheritDoc}
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
@@ -18,7 +20,8 @@ class Configuration implements ConfigurationInterface
             ->children()
             ->scalarNode('quote')->defaultValue('"')->end()
             ->scalarNode('separator')->defaultValue(',')->end()
-            ->end();
+            ->end()
+        ;
 
         return $treeBuilder;
     }

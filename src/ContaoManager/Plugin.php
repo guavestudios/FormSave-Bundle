@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Guave\FormSaveBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
@@ -10,9 +12,6 @@ use Guave\FormSaveBundle\GuaveFormSaveBundle;
 
 class Plugin implements BundlePluginInterface
 {
-    /**
-     * {@inheritDoc}
-     */
     public function getBundles(ParserInterface $parser): array
     {
         return [

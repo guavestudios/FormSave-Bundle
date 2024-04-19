@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Guave\FormSaveBundle\EventListener;
 
 use Contao\Form;
@@ -7,34 +9,24 @@ use Guave\FormSaveBundle\Model\FormSaveModel;
 
 class StoreFormDataListener
 {
+    /**
+     * @param array<string> $data
+     *
+     * @return array<string>
+     */
     public function __invoke(array $data, Form $form): array
     {
         if ($form->targetTable !== FormSaveModel::getTable()) {
             return $data;
         }
 
-        if (!$data['first_name'] && $data['firstname']) {
-            $data['first_name'] = $data['firstname'];
-        }
-
-        if (!$data['last_name'] && $data['lastname']) {
-            $data['last_name'] = $data['lastname'];
-        }
-
-        if (!$data['email'] && $data['e-mail']) {
-            $data['email'] = $data['e-mail'];
-        }
-
         $formData = [
             'pid' => $form->id,
             'tstamp' => $data['tstamp'],
             'alias' => $data['alias'],
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
         ];
 
-        $serialized = array_diff_assoc(
+        $serialized = array_diff(
             $data,
             $formData
         );

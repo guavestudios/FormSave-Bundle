@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Guave\FormSaveBundle\EventListener;
 
 use Contao\ContentModel;
@@ -8,18 +10,20 @@ use Guave\FormSaveBundle\Model\ContentModel as GuaveContentModel;
 
 class GetContentElementListener
 {
-    public function __invoke(ContentModel $contentModel, string $buffer, $element): string
+    public function __invoke(ContentModel $contentModel, string $buffer, object $element): string
     {
         if (empty($contentModel->form)) {
             return $buffer;
         }
 
         $formNameElement = GuaveContentModel::findPublishedByPidAndType($contentModel->pid, 'formName');
+
         if ($formNameElement === null) {
             return $buffer;
         }
 
         $aliasField = FormFieldModel::findBy(['pid = ?', 'name = ?'], [$contentModel->form, 'alias']);
+
         if ($aliasField === null) {
             return $buffer;
         }

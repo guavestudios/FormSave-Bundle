@@ -1,6 +1,6 @@
 # Form Save Bundle
 
-This contao module saves forms configured with the save form field to the `tl_save_form` table.
+This contao module saves forms configured with the save form field to the `tl_form_save` table.
 
 ## Requirements
 
@@ -16,18 +16,16 @@ $ php vendor/bin/contao-console contao:migrate
 
 ## Usage
 
-Create a form that saves to the table `tl_form_save` and has the following required field names:
+Create a form that saves to the table `tl_form_save`.
 
-- `alias`
-- `first_name`/`firstname`
-- `last_name`/`lastname`
-- `e-mail`/`email`
+Add a hidden field with the field name `alias` and a default value of your choice.
+The value will be used to display the form in the exported CSV.
 
 Every other field with a field name will be serialized into a `form_data` field in the database.
 
-In the form overview in Contao there will be a new button that allows you to download a CSV of the submissions.
+Within the form overview in Contao there will be a new button that allows you to download a CSV of the submissions.
 
-## TODO
-
-Currently, if you add, remove or change a field in the form after there are submissions, the csv will be inconsistent
-and some values maybe under the wrong header. 
+There is also an optional Form Name Content Element, which you can add to the same page as the form.
+This will override the `alias` from the form.
+This is useful for when you have the same form for multiple uses.
+This way you can differentiate the submitions in the CSV by the `alias`.

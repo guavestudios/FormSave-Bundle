@@ -84,24 +84,6 @@ $GLOBALS['TL_DCA']['tl_form_save'] = [
             'eval' => ['readonly' => true, 'tl_class' => 'w50 clr'],
             'sql' => ['type' => 'string', 'notnull' => true, 'default' => ''],
         ],
-        'first_name' => [
-            'search' => true,
-            'inputType' => 'text',
-            'eval' => ['readonly' => true, 'tl_class' => 'w50'],
-            'sql' => ['type' => 'string', 'notnull' => true, 'default' => ''],
-        ],
-        'last_name' => [
-            'search' => true,
-            'inputType' => 'text',
-            'eval' => ['readonly' => true, 'tl_class' => 'w50 clr'],
-            'sql' => ['type' => 'string', 'notnull' => true, 'default' => ''],
-        ],
-        'email' => [
-            'search' => true,
-            'inputType' => 'text',
-            'eval' => ['readonly' => true, 'tl_class' => 'w50 clr'],
-            'sql' => ['type' => 'string', 'notnull' => true, 'default' => ''],
-        ],
         'form_data' => [
             'search' => true,
             'inputType' => 'text',

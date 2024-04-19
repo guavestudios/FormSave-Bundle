@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Guave\FormSaveBundle\Controller\ContentElement;
 
 use Contao\BackendTemplate;
@@ -18,7 +20,7 @@ use Symfony\Component\HttpFoundation\Response;
 #[AsContentElement('formName', category: 'includes', template: 'content_element/form-name')]
 class FormNameController extends AbstractContentElementController
 {
-    protected function getResponse(Template $template, ContentModel $model, Request $request): ?Response
+    protected function getResponse(Template $template, ContentModel $model, Request $request): Response|null
     {
         if (System::getContainer()->get('contao.routing.scope_matcher')->isBackendRequest($request)) {
             $template = new BackendTemplate('be_wildcard');
