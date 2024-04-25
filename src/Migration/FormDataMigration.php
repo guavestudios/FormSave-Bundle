@@ -40,9 +40,11 @@ class FormDataMigration extends AbstractMigration
         $results = $this->connection->executeQuery('SELECT * FROM '.$this->table)->fetchAllAssociative();
 
         if (\count($results) < 1) {
+            $this->connection->executeStatement('ALTER TABLE '.$this->table.' DROP COLUMN first_name, DROP COLUMN last_name, DROP COLUMN email');
+
             return $this->createResult(
                 false,
-                'No data sets found in tl_form_save table.'
+                'No data sets found in tl_form_save table. Schema has been updated.'
             );
         }
 
