@@ -26,7 +26,7 @@ class StoreFormDataListener
             'alias' => $data['alias'],
         ];
 
-        $serialized = array_diff(
+        $serialized = array_diff_assoc(
             $data,
             $formData
         );
